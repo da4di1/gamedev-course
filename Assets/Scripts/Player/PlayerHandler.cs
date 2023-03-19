@@ -1,6 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Camera;
+using Core.Enums;
+using Core.Tools;
 using UnityEngine;
 
 namespace Player{
@@ -14,10 +17,12 @@ namespace Player{
         [Header("Jumping")]
         [SerializeField] private float _jumpingForce = 100f;
 
-        private Rigidbody2D _rigidbody;
+        [SerializeField] private Cameras _cameras;
 
-        private bool _faceRight = true;
-        private bool _isJumping = false;
+        private Rigidbody2D _rigidbody;
+        
+        private bool _isJumping;
+        private Direction _faceDirection = Direction.Right;
 
 
         private void Start()
@@ -25,14 +30,9 @@ namespace Player{
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        private void Update()
-        {
-            
-        }
-
         private void OnCollisionEnter2D(Collision2D other) 
         {
-            if (other.transform.tag == "Ground")
+            if (other.transform.CompareTag("Ground"))
             {
                 _isJumping = false;
             }
@@ -40,7 +40,7 @@ namespace Player{
 
         private void OnCollisionExit2D(Collision2D other) 
         {
-            if (other.transform.tag == "Ground")
+            if (other.transform.CompareTag("Ground"))
             {
                 _isJumping = true;
             }
@@ -65,16 +65,27 @@ namespace Player{
 
         private void SetDirection(float direction)
         {
-            if ((_faceRight && direction < 0) || (!_faceRight && direction > 0))
+            if ((_faceDirection == Direction.Right && direction < 0) || 
+                (_faceDirection == Direction.Left && direction > 0))
             {
                 FlipSide();
+                FlipCameras();
             }
         }
 
         private void FlipSide()
         {
             transform.Rotate(0, 180, 0);
-            _faceRight = !_faceRight;
+            _faceDirection = _faceDirection == Direction.Right ? Direction.Left : Direction.Right;
+        }
+
+        
+        public void FlipCameras()
+        {
+            if (_cameras.StartCamera.enabled || _cameras.FinalCamera.enabled) return;
+
+            foreach (var cameraPair in _cameras.DirectionalCameras)
+                cameraPair.Value.enabled = _faceDirection == cameraPair.Key;
         }
     }
 
