@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Cinemachine;
 using Core.Enums;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Core.Tools
 {
