@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Camera;
 using Core.Enums;
 using Core.Tools;
 using UnityEngine;
@@ -12,10 +8,10 @@ namespace Player{
     public class PlayerHandler : MonoBehaviour
     {
         [Header("HorizontalMovement")]
-        [SerializeField] private float _movingSpeed = 190f;
+        public float MovingSpeed = 230f;
 
         [Header("Jumping")]
-        [SerializeField] private float _jumpingForce = 100f;
+        [SerializeField] private float _jumpingForce = 270f;
 
         [SerializeField] private Cameras _cameras;
 
@@ -51,7 +47,7 @@ namespace Player{
         {
             SetDirection(direction);
             Vector2 velocity = _rigidbody.velocity;
-            velocity.x = direction * _movingSpeed * Time.deltaTime;
+            velocity.x = direction * MovingSpeed * Time.deltaTime;
             _rigidbody.velocity = velocity;
         }
 
