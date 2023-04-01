@@ -1,5 +1,7 @@
+using System;
 using Core.Enums;
 using Core.Tools;
+using Player.PlayerAnimation;
 using UnityEngine;
 
 namespace Player{
@@ -7,17 +9,20 @@ namespace Player{
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerHandler : MonoBehaviour
     {
-        [Header("HorizontalMovement")]
+        [Header("HorizontalMovement")] 
         public float MovingSpeed = 230f;
 
-        [Header("Jumping")]
+        [Header("Jumping")] 
         [SerializeField] private float _jumpingForce = 270f;
-
+        
+        [SerializeField] private AnimatorController _animator;
         [SerializeField] private Cameras _cameras;
 
         private Rigidbody2D _rigidbody;
-        
+
         private bool _isJumping;
+        private bool _isLanding;
+        private float _direction;
         private Direction _faceDirection = Direction.Right;
 
 
@@ -26,25 +31,32 @@ namespace Player{
             _rigidbody = GetComponent<Rigidbody2D>();
         }
 
-        private void OnCollisionEnter2D(Collision2D other) 
+        private void Update()
+        {
+            UpdateAnimations();
+        }
+
+        private void OnCollisionStay2D(Collision2D other)
         {
             if (other.transform.CompareTag("Ground"))
             {
                 _isJumping = false;
+                _isLanding = false;
+                CancelInvoke(nameof(StartLanding));
             }
         }
 
-        private void OnCollisionExit2D(Collision2D other) 
+        private void OnCollisionExit2D(Collision2D other)
         {
             if (other.transform.CompareTag("Ground"))
             {
-                _isJumping = true;
+                Invoke(nameof(StartLanding), 0.3f);
             }
         }
 
-
         public void MoveHorizontally(float direction)
         {
+            _direction = direction;
             SetDirection(direction);
             Vector2 velocity = _rigidbody.velocity;
             velocity.x = direction * MovingSpeed * Time.deltaTime;
@@ -53,15 +65,53 @@ namespace Player{
 
         public void Jump()
         {
-            if (_isJumping) { return; }
+            if (_isJumping)
+                return;
 
+            _isJumping = true;
+
+            if (!_animator.PlayAnimation(AnimationType.Jump, _isJumping))
+                return;
+            
+            _animator.ActionEnded += EndJump;
             _rigidbody.AddForce(Vector2.up * _jumpingForce);
         }
 
+        public void StartAttack()
+        {
+            if (!_animator.PlayAnimation(AnimationType.Attack, true))
+                return;
+
+            _animator.ActionRequested += Attack;
+            _animator.ActionEnded += EndAttack;
+        }
+
+        public void FlipCameras()
+        {
+            if (_cameras.StartCamera.enabled || _cameras.FinalCamera.enabled) return;
+
+            foreach (var cameraPair in _cameras.DirectionalCameras)
+                cameraPair.Value.enabled = _faceDirection == cameraPair.Key;
+        }
+
+        private void UpdateAnimations()
+        {
+            _animator.PlayAnimation(AnimationType.Land, _isLanding);
+            _animator.PlayAnimation(AnimationType.Run, _direction != 0);
+            _animator.PlayAnimation(AnimationType.Idle, true);
+        }
+
+        private void StartLanding() => _isLanding = true;
+
+        private void EndJump()
+        {
+            _animator.ActionEnded -= EndJump;
+            StartLanding();
+        }
 
         private void SetDirection(float direction)
         {
-            if ((_faceDirection == Direction.Right && direction < 0) || 
+            if ((_faceDirection == Direction.Right && direction < 0) ||
                 (_faceDirection == Direction.Left && direction > 0))
             {
                 FlipSide();
@@ -75,13 +125,16 @@ namespace Player{
             _faceDirection = _faceDirection == Direction.Right ? Direction.Left : Direction.Right;
         }
 
-        
-        public void FlipCameras()
+        private void Attack()
         {
-            if (_cameras.StartCamera.enabled || _cameras.FinalCamera.enabled) return;
+            Debug.Log("Attack has been committed");
+        }
 
-            foreach (var cameraPair in _cameras.DirectionalCameras)
-                cameraPair.Value.enabled = _faceDirection == cameraPair.Key;
+        private void EndAttack()
+        {
+            _animator.ActionRequested -= Attack;
+            _animator.ActionEnded -= EndAttack;
+            _animator.PlayAnimation(AnimationType.Attack, false);
         }
     }
 
