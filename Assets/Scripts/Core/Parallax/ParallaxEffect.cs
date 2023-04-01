@@ -7,10 +7,11 @@ namespace Core.Parallax
 {
     public class ParallaxEffect : MonoBehaviour
     {
+        private const float TargetSpeedCoef = 2f;
+        
         [SerializeField] private List<ParallaxLayer> _layers;
         [SerializeField] private GameObject _target;
-
-        private const float TargetSpeedCoef = 2f;
+        
         private float _previousTargetPosition;
         
 
@@ -26,7 +27,7 @@ namespace Core.Parallax
             
             foreach (var layer in _layers)
             {
-                Vector3 layerPosition = layer.Transform.position;
+                Vector2 layerPosition = layer.Transform.position;
                 layerPosition.x += deltaMovement * layer.Speed;
                 layer.Transform.position = layerPosition;
             }
