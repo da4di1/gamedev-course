@@ -2,17 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cecdd1f5-c32d-4f40-81f5-6b24eec1bcbd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Enums/AnimationType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Enums/AnimationType.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/AnimatorController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/AnimatorController.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/UnityAnimatorController.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/UnityAnimatorController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KPI course/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KPI course/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Art/Pixelart/Samurai Sideview Tileset/Environment/Wasteland/Wasteland Sprite Atlas.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Art/Pixelart/Samurai Sideview Tileset/Environment/Wasteland/Wasteland Sprite Atlas.spriteatlas" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Parallax/ParallaxEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Parallax/ParallaxEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +14,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Camera/StaticCameraActivator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Core/Tools/WorldBoundaries.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -105,6 +98,8 @@
       <workItem from="1680179147220" duration="11548000" />
       <workItem from="1680198051047" duration="1247000" />
       <workItem from="1680372379250" duration="17030000" />
+      <workItem from="1680452305075" duration="1489000" />
+      <workItem from="1680517740344" duration="7205000" />
     </task>
     <servers />
   </component>
