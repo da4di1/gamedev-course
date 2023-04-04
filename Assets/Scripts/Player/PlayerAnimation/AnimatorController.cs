@@ -2,7 +2,7 @@
 using Core.Enums;
 using UnityEngine;
 
-namespace Core.Animations
+namespace Player.PlayerAnimation
 {
     public abstract class AnimatorController : MonoBehaviour
     {

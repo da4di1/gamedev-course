@@ -1,29 +1,28 @@
-using System;
 using UnityEngine;
 
 namespace Core.Tools
 {
-    [Serializable]
-    public class WorldBoundaries
+    public class WorldBoundaries : MonoBehaviour
     {
-        [SerializeField] private Cameras _cameras;
+        [SerializeField] private Transform _startCamera;
+        [SerializeField] private Transform _finalCamera;
         [SerializeField] private Transform _levelLeftBorder;
         [SerializeField] private Transform _levelRightBorder;
-        
+        [SerializeField] private UnityEngine.Camera _mainCamera;
 
         private Vector2 _horizontalPosition;
 
-        public void OnAwake()
+        private void Awake()
         {
-            _horizontalPosition.x =  _levelLeftBorder.position.x + (_levelLeftBorder.localScale.x / 2) + _cameras.MainCamera.aspect * _cameras.MainCamera.orthographicSize;
-            Vector3 startCameraPosition = _cameras.StartCamera.transform.position;
+            _horizontalPosition.x =  _levelLeftBorder.position.x + (_levelLeftBorder.localScale.x / 2) + _mainCamera.aspect * _mainCamera.orthographicSize;
+            Vector3 startCameraPosition = _startCamera.position;
             startCameraPosition = new Vector3(_horizontalPosition.x, startCameraPosition.y, startCameraPosition.z);
-            _cameras.StartCamera.transform.position = startCameraPosition;
+            _startCamera.position = startCameraPosition;
 
-            _horizontalPosition.x =  _levelRightBorder.position.x - ((_levelRightBorder.localScale.x / 2) + _cameras.MainCamera.aspect * _cameras.MainCamera.orthographicSize);
-            Vector3 finalCameraPosition = _cameras.FinalCamera.transform.position;
+            _horizontalPosition.x =  _levelRightBorder.position.x - ((_levelRightBorder.localScale.x / 2) + _mainCamera.aspect * _mainCamera.orthographicSize);
+            Vector3 finalCameraPosition = _finalCamera.position;
             finalCameraPosition = new Vector3(_horizontalPosition.x, finalCameraPosition.y, finalCameraPosition.z);
-            _cameras.FinalCamera.transform.position = finalCameraPosition;
+            _finalCamera.position = finalCameraPosition;
         }
     }
 }

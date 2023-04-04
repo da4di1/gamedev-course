@@ -1,64 +1,79 @@
-using Core.Animations;
 using Core.Enums;
-using Core.Movement.Controller;
-using Core.Movement.Data;
 using Core.Tools;
+using Player.PlayerAnimation;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player{
 
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerEntityHandler : MonoBehaviour
     {
-        public HorizontalMovementData MovementData;
+        [Header("HorizontalMovement")] 
+        public float MovingSpeed = 230f;
+
+        [Header("Jumping")] 
+        [SerializeField] private float _jumpingForce = 270f;
         
-        [SerializeField] private JumpData _jumpData;
         [SerializeField] private AnimatorController _animator;
         [SerializeField] private Cameras _cameras;
 
         private Rigidbody2D _rigidbody;
 
-        private Mover _mover;
-        private Jumper _jumper;
+        private bool _isJumping;
+        private bool _isLanding;
+        private float _direction;
+        private Direction _faceDirection = Direction.Right;
 
 
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _mover = new Mover(_rigidbody, MovementData);
-            _jumper = new Jumper(_rigidbody, _jumpData);
         }
 
         private void Update()
         {
             UpdateAnimations();
-            UpdateCameras();
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionStay2D(Collision2D other)
         {
-            if (_jumper.StayOnGround(other))
+            if (other.transform.CompareTag("Ground"))
+            {
+                _isJumping = false;
+                _isLanding = false;
                 CancelInvoke(nameof(StartLanding));
+            }
         }
 
         private void OnCollisionExit2D(Collision2D other)
         {
-            if (_jumper.GetOffGround(other))
+            if (other.transform.CompareTag("Ground"))
+            {
                 Invoke(nameof(StartLanding), 0.4f);
+            }
         }
 
-        public void MoveHorizontally(float direction) => _mover.MoveHorizontally(direction);
+        public void MoveHorizontally(float direction)
+        {
+            _direction = direction;
+            SetDirection(direction);
+            Vector2 velocity = _rigidbody.velocity;
+            velocity.x = direction * MovingSpeed * Time.deltaTime;
+            _rigidbody.velocity = velocity;
+        }
 
         public void Jump()
         {
-            if (!_jumper.StartJump())
+            if (_isJumping)
                 return;
-            
-            if (!_animator.PlayAnimation(AnimationType.Jump, _jumper.IsJumping))
+
+            _isJumping = true;
+
+            if (!_animator.PlayAnimation(AnimationType.Jump, _isJumping))
                 return;
             
             _animator.ActionEnded += EndJump;
+            _rigidbody.AddForce(Vector2.up * _jumpingForce);
         }
 
         public void StartAttack()
@@ -70,29 +85,45 @@ namespace Player{
             _animator.ActionEnded += EndAttack;
         }
 
-        public void UpdateCameras()
+        public void FlipCameras()
         {
             if (_cameras.StartCamera.enabled || _cameras.FinalCamera.enabled) return;
 
             foreach (var cameraPair in _cameras.DirectionalCameras)
-                cameraPair.Value.enabled = _mover.FaceDirection == cameraPair.Key;
+                cameraPair.Value.enabled = _faceDirection == cameraPair.Key;
         }
 
         private void UpdateAnimations()
         {
-            _animator.PlayAnimation(AnimationType.Land, _jumper.IsLanding);
-            _animator.PlayAnimation(AnimationType.Run, _mover.IsMoving);
+            _animator.PlayAnimation(AnimationType.Land, _isLanding);
+            _animator.PlayAnimation(AnimationType.Run, _direction != 0);
             _animator.PlayAnimation(AnimationType.Idle, true);
         }
+
+        private void StartLanding() => _isLanding = true;
 
         private void EndJump()
         {
             _animator.ActionEnded -= EndJump;
             StartLanding();
         }
-        
-        private void StartLanding() => _jumper.StartLanding();
-        
+
+        private void SetDirection(float direction)
+        {
+            if ((_faceDirection == Direction.Right && direction < 0) ||
+                (_faceDirection == Direction.Left && direction > 0))
+            {
+                FlipSide();
+                FlipCameras();
+            }
+        }
+
+        private void FlipSide()
+        {
+            transform.Rotate(0, 180, 0);
+            _faceDirection = _faceDirection == Direction.Right ? Direction.Left : Direction.Right;
+        }
+
         private void Attack()
         {
             Debug.Log("Attack has been committed");

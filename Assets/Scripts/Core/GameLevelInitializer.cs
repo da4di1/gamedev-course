@@ -1,6 +1,4 @@
 ﻿using System.Collections.Generic;
-using Core.Tools;
-using InputReader;
 using Player;
 using UnityEngine;
 
@@ -8,7 +6,6 @@ namespace Core
 {
     public class GameLevelInitializer : MonoBehaviour
     {
-        [SerializeField] private WorldBoundaries _levelBorders;
         [SerializeField] private PlayerEntityHandler _player;
         [SerializeField] private GameUIInputView _gameUIInputView;
 
@@ -19,8 +16,6 @@ namespace Core
 
         private void Awake()
         {
-            _levelBorders.OnAwake();
-            
             _externalDeviceInputReader = new ExternalDeviceInputReader();
             _playerBrain = new PlayerBrain(_player, new List<IEntityInputSource>
             {

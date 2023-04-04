@@ -13,7 +13,6 @@ namespace Core.Tools
         [SerializeField] private CinemachineVirtualCamera _leftDirectionCamera;
         [field: SerializeField] public CinemachineVirtualCamera StartCamera { get; private set; }
         [field: SerializeField] public CinemachineVirtualCamera FinalCamera { get; private set; }
-        [field: SerializeField] public Camera MainCamera { get; private set; }
 
         private Dictionary<Direction, CinemachineVirtualCamera> _directionalCameras;
         public Dictionary<Direction, CinemachineVirtualCamera> DirectionalCameras

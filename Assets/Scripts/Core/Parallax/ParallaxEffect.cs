@@ -18,7 +18,7 @@ namespace Core.Parallax
         private void OnEnable()
         {
             if (_target != null)
-                _target.GetComponent<PlayerEntityHandler>().MovementData.MovingSpeed /= TargetSpeedCoef;
+                _target.GetComponent<PlayerEntityHandler>().MovingSpeed /= TargetSpeedCoef;
             _previousTargetPosition = _target.transform.position.x;
         }
 
@@ -39,7 +39,7 @@ namespace Core.Parallax
         private void OnDisable()
         {
             if (_target != null)
-                _target.GetComponent<PlayerEntityHandler>().MovementData.MovingSpeed *= TargetSpeedCoef;
+                _target.GetComponent<PlayerEntityHandler>().MovingSpeed *= TargetSpeedCoef;
         }
 
         

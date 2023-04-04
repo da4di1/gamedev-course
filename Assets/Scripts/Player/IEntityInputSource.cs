@@ -1,4 +1,4 @@
-﻿namespace InputReader
+﻿namespace Player
 {
     public interface IEntityInputSource
     {
