@@ -1,7 +1,8 @@
+using Player;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Player
+namespace InputReader
 {
     public class ExternalDeviceInputReader : IEntityInputSource
     {

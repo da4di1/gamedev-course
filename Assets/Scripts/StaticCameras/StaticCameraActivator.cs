@@ -3,7 +3,7 @@ using Core.Tools;
 using Player;
 using UnityEngine;
 
-namespace Camera
+namespace StaticCameras
 {
     public class StaticCameraActivator : MonoBehaviour
     {
@@ -43,7 +43,7 @@ namespace Camera
                     _cameras.FinalCamera.enabled = false;
             }
             
-            other.GetComponent<PlayerEntityHandler>().FlipCameras();
+            other.GetComponent<PlayerEntityHandler>()?.UpdateCameras();
         }
     }
 }

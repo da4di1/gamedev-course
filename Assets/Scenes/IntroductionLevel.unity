@@ -8925,7 +8925,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 936091123}
-  - component: {fileID: 936091124}
   m_Layer: 0
   m_Name: Level Borders
   m_TagString: Untagged
@@ -8949,23 +8948,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &936091124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 936091122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf531bf18d9a63a49adf1e887449fc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startCamera: {fileID: 997843504}
-  _finalCamera: {fileID: 394666166}
-  _levelLeftBorder: {fileID: 174666064}
-  _levelRightBorder: {fileID: 904296739}
-  _mainCamera: {fileID: 519420031}
 --- !u!1 &968923589
 GameObject:
   m_ObjectHideFlags: 0
@@ -8995,6 +8977,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3b0c21d7cc74aeaba59c3820748812b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelBorders:
+    _cameras:
+      _rightDirectionCamera: {fileID: 1450903238}
+      _leftDirectionCamera: {fileID: 2027839563}
+      <StartCamera>k__BackingField: {fileID: 997843503}
+      <FinalCamera>k__BackingField: {fileID: 394666165}
+      <MainCamera>k__BackingField: {fileID: 519420031}
+    _levelLeftBorder: {fileID: 174666064}
+    _levelRightBorder: {fileID: 904296739}
   _player: {fileID: 1404122219}
   _gameUIInputView: {fileID: 32596157}
 --- !u!4 &968923591
@@ -9571,6 +9562,7 @@ MonoBehaviour:
     _leftDirectionCamera: {fileID: 2027839563}
     <StartCamera>k__BackingField: {fileID: 997843503}
     <FinalCamera>k__BackingField: {fileID: 394666165}
+    <MainCamera>k__BackingField: {fileID: 519420031}
 --- !u!68 &1404122220
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -11066,6 +11058,7 @@ MonoBehaviour:
     _leftDirectionCamera: {fileID: 2027839563}
     <StartCamera>k__BackingField: {fileID: 997843503}
     <FinalCamera>k__BackingField: {fileID: 394666165}
+    <MainCamera>k__BackingField: {fileID: 519420031}
   _parallax: {fileID: 1970673423}
 --- !u!50 &1669612364
 Rigidbody2D:
