@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Player{
 
     [RequireComponent(typeof(Rigidbody2D))]
-    public class PlayerHandler : MonoBehaviour
+    public class PlayerEntityHandler : MonoBehaviour
     {
         [Header("HorizontalMovement")] 
         public float MovingSpeed = 230f;
@@ -49,7 +49,7 @@ namespace Player{
         {
             if (other.transform.CompareTag("Ground"))
             {
-                Invoke(nameof(StartLanding), 0.3f);
+                Invoke(nameof(StartLanding), 0.4f);
             }
         }
 

@@ -12,6 +12,7 @@ namespace Player.PlayerAnimation
         public event Action ActionRequested;
         public event Action ActionEnded;
         
+        
         public bool PlayAnimation(AnimationType animationType, bool isActive)
         {
             if (!isActive)

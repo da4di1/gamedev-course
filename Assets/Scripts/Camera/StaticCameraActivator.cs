@@ -43,7 +43,7 @@ namespace Camera
                     _cameras.FinalCamera.enabled = false;
             }
             
-            other.GetComponent<PlayerHandler>().FlipCameras();
+            other.GetComponent<PlayerEntityHandler>().FlipCameras();
         }
     }
 }
