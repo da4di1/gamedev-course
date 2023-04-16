@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Core.Services.Updater;
 using Core.Tools;
 using InputReader;
 using Player;
@@ -13,36 +15,47 @@ namespace Core
         [SerializeField] private GameUIInputView _gameUIInputView;
 
         private ExternalDeviceInputReader _externalDeviceInputReader;
-        private PlayerBrain _playerBrain;
+        private PlayerSystem _playerSystem;
+        private ProjectUpdater _projectUpdater;
 
-        private bool _onPause = false;
+        private List<IDisposable> _disposables;
+        
 
         private void Awake()
         {
             _levelBorders.OnAwake();
+
+            _disposables = new List<IDisposable>();
+
+            if (ProjectUpdater.Instance == null)
+            {
+                _projectUpdater = new GameObject().AddComponent<ProjectUpdater>();
+                _projectUpdater.gameObject.name = "Game Updater";
+            }
+            else
+                _projectUpdater = ProjectUpdater.Instance as ProjectUpdater;
             
             _externalDeviceInputReader = new ExternalDeviceInputReader();
-            _playerBrain = new PlayerBrain(_player, new List<IEntityInputSource>
+            _disposables.Add(_externalDeviceInputReader);
+            
+            _playerSystem = new PlayerSystem(_player, new List<IEntityInputSource>
             {
                 _gameUIInputView,
                 _externalDeviceInputReader,
             });
-        }
-        
-        private void Update()
-        {  
-            if (_onPause)
-                return;
-            
-            _externalDeviceInputReader.OnUpdate();
+            _disposables.Add(_playerSystem);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
-            if (_onPause)
-                return;
-            
-            _playerBrain.OnFixedUpdate();
+            if (Input.GetKeyDown(KeyCode.Escape))
+                _projectUpdater.IsPaused = !_projectUpdater.IsPaused;
+        }
+
+        private void OnDestroy()
+        {
+            foreach (var disposable in _disposables)
+                disposable.Dispose();
         }
     }
 }

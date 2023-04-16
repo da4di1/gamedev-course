@@ -90,7 +90,7 @@ TextureImporter:
       213: -1771329306
     second: GroundWastelandTileset_28
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -111,6 +111,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -149,6 +150,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -180,6 +182,18 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -808,6 +822,36 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      GroundWastelandTileset_0: -783504209
+      GroundWastelandTileset_1: 646786108
+      GroundWastelandTileset_10: -281193825
+      GroundWastelandTileset_11: 949307361
+      GroundWastelandTileset_12: 470333102
+      GroundWastelandTileset_13: 984251721
+      GroundWastelandTileset_14: 1390969968
+      GroundWastelandTileset_15: -1183139482
+      GroundWastelandTileset_16: 636797680
+      GroundWastelandTileset_17: -1326007868
+      GroundWastelandTileset_18: 1870143960
+      GroundWastelandTileset_19: 232462642
+      GroundWastelandTileset_2: -89316175
+      GroundWastelandTileset_20: -860970599
+      GroundWastelandTileset_21: -1758575640
+      GroundWastelandTileset_22: -652329670
+      GroundWastelandTileset_23: -1098418287
+      GroundWastelandTileset_24: -65316576
+      GroundWastelandTileset_25: 1907357359
+      GroundWastelandTileset_26: -1281100506
+      GroundWastelandTileset_27: 1866663944
+      GroundWastelandTileset_28: -1771329306
+      GroundWastelandTileset_3: -1604083543
+      GroundWastelandTileset_4: -1177423851
+      GroundWastelandTileset_5: 1808542236
+      GroundWastelandTileset_6: 2029448952
+      GroundWastelandTileset_7: 1867371900
+      GroundWastelandTileset_8: 1559620164
+      GroundWastelandTileset_9: 1153028195
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

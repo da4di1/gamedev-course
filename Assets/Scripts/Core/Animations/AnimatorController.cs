@@ -7,8 +7,7 @@ namespace Core.Animations
     public abstract class AnimatorController : MonoBehaviour
     {
         private AnimationType _currentAnimationType;
-        
-        
+
         public event Action ActionRequested;
         public event Action ActionEnded;
         

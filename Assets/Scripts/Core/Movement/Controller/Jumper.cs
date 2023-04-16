@@ -29,7 +29,7 @@ namespace Core.Movement.Controller
             return true;
         }
 
-        public bool StayOnGround(Collision2D ground)
+        public bool GetOnGround(Collision2D ground)
         {
             if (ground.transform.CompareTag("Ground"))
             {

@@ -4,7 +4,6 @@ using Core.Movement.Controller;
 using Core.Movement.Data;
 using Core.Tools;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Player{
 
@@ -38,7 +37,7 @@ namespace Player{
 
         private void OnCollisionEnter2D(Collision2D other)
         {
-            if (_jumper.StayOnGround(other))
+            if (_jumper.GetOnGround(other))
                 CancelInvoke(nameof(StartLanding));
         }
 

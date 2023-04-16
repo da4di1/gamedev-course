@@ -2,50 +2,43 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cecdd1f5-c32d-4f40-81f5-6b24eec1bcbd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Animations.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller/Jumper.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller/Jumper.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller/Mover.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller/Mover.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data/HorizontalMovementData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data/HorizontalMovementData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data/JumpData.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data/JumpData.cs.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Services.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Services/Updater.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Services/Updater/IProjectUpdater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Services/Updater/IProjectUpdater.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Services/Updater/ProjectUpdater.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Services/Updater/ProjectUpdater.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerSystem.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerSystem.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.KPI course/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.KPI course/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticCameras.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/StaticCameraActivator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticCameras/StaticCameraActivator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Camera/StaticCameraActivator.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StaticCameras/StaticCameraActivator.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Ninja/Attack.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Ninja/Attack.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Ninja/Idle.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Ninja/Idle.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Ninja/Jump.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Ninja/Jump.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Ninja/Land.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Ninja/Land.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/Ninja/Run.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Ninja/Run.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Art/Pixelart/Samurai Sideview Tileset/Environment/Wasteland/Sprites/Ground/GroundWastelandTileset.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Art/Pixelart/Samurai Sideview Tileset/Environment/Wasteland/Sprites/Ground/GroundWastelandTileset.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Graphics/Art/Pixelart/Samurai Sideview Tileset/Environment/Wasteland/Wasteland Sprite Atlas.spriteatlas" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Graphics/Art/Pixelart/Samurai Sideview Tileset/Environment/Wasteland/Wasteland Sprite Atlas.spriteatlas" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/IntroductionLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/IntroductionLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Animations/AnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Animations/AnimatorController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/GameLevelInitializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/GameLevelInitializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Parallax/ParallaxEffect.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Parallax/ParallaxEffect.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Tools/Cameras.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Tools/Cameras.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Tools/WorldBoundaries.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Tools/WorldBoundaries.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/ExternalDeviceInputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/ExternalDeviceInputReader.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/ExternalDeviceInputReader.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/ExternalDeviceInputReader.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GameUIInputView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/GameUIInputView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/GameUIInputView.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/GameUIInputView.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IEntityInputSource.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/IEntityInputSource.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/IEntityInputSource.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/IEntityInputSource.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/AnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Animations/AnimatorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/AnimatorController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Animations/AnimatorController.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/UnityAnimatorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Animations/UnityAnimatorController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerAnimation/UnityAnimatorController.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Animations/UnityAnimatorController.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller/Jumper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Controller/Jumper.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data/HorizontalMovementData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Core/Movement/Data/HorizontalMovementData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputReader/ExternalDeviceInputReader.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/ExternalDeviceInputReader.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/InputReader/GameUIInputView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/InputReader/GameUIInputView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerBrain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerBrain.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntityHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerEntityHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectVersion.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/ba783288ca164d3099898a8819fcec1c159e00/60/169a2ab4/Component.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -77,7 +70,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\unity\2020.3.34f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="E:\unity\2021.3.22f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;E:\unity\projects\KPI course&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\unity\projects\KPI course" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -85,7 +78,7 @@
       <method v="2" />
     </configuration>
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\unity\2020.3.34f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="E:\unity\2021.3.22f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;E:\unity\projects\KPI course&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="E:\unity\projects\KPI course" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -134,6 +127,8 @@
       <workItem from="1680606343599" duration="1816000" />
       <workItem from="1680609992441" duration="7387000" />
       <workItem from="1680635508662" duration="5453000" />
+      <workItem from="1680645732374" duration="2350000" />
+      <workItem from="1681570521186" duration="11710000" />
     </task>
     <servers />
   </component>
