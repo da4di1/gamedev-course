@@ -1,14 +1,14 @@
 ﻿using Core.Enums;
-using Core.Movement.Data;
+using StatsSystem;
 using UnityEngine;
 
-namespace Core.Movement.Controller
+namespace Core.Movement.Controllers
 {
     public class Mover
     {
         private readonly Rigidbody2D _rigidbody;
         private readonly Transform _transform;
-        private readonly HorizontalMovementData _movementData;
+        private readonly IStatValueGiver _statValueGiver;
 
         private float _direction;
         
@@ -16,11 +16,11 @@ namespace Core.Movement.Controller
         public bool IsMoving => _direction != 0;
         
         
-        public Mover(Rigidbody2D rigidbody, HorizontalMovementData movementData)
+        public Mover(Rigidbody2D rigidbody, IStatValueGiver statValueGiver)
         {
             _rigidbody = rigidbody;
             _transform = rigidbody.transform;
-            _movementData = movementData;
+            _statValueGiver = statValueGiver;
         }
         
         public void MoveHorizontally(float direction)
@@ -28,7 +28,7 @@ namespace Core.Movement.Controller
             _direction = direction;
             SetDirection(direction);
             Vector2 velocity = _rigidbody.velocity;
-            velocity.x = direction * _movementData.MovingSpeed * Time.deltaTime;
+            velocity.x = direction * _statValueGiver.GetValue(StatType.Speed) * Time.deltaTime;
             _rigidbody.velocity = velocity;
         }
         

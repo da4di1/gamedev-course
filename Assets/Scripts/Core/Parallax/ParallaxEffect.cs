@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.Enums;
 using Player;
 using UnityEngine;
 
@@ -18,7 +19,10 @@ namespace Core.Parallax
         private void OnEnable()
         {
             if (_target != null)
-                _target.GetComponent<PlayerEntityHandler>().MovementData.MovingSpeed /= TargetSpeedCoef;
+            {
+                var speed = _target.GetComponent<PlayerEntityHandler>().StatGiver.GetStat(StatType.Speed);
+                speed.SetValue(speed / TargetSpeedCoef);
+            }
             _previousTargetPosition = _target.transform.position.x;
         }
 
@@ -39,7 +43,10 @@ namespace Core.Parallax
         private void OnDisable()
         {
             if (_target != null)
-                _target.GetComponent<PlayerEntityHandler>().MovementData.MovingSpeed *= TargetSpeedCoef;
+            {
+                var speed = _target.GetComponent<PlayerEntityHandler>().StatGiver.GetStat(StatType.Speed);
+                speed.SetValue(speed * TargetSpeedCoef);
+            }
         }
 
         

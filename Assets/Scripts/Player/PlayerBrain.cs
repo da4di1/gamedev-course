@@ -16,6 +16,7 @@ namespace Player
         {
             _player = player;
             _inputSources = inputSources;
+            
             ProjectUpdater.Instance.FixedUpdateCalled += OnFixedUpdate;
         }
 

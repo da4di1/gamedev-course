@@ -1,8 +1,8 @@
 using Core.Animations;
 using Core.Enums;
-using Core.Movement.Controller;
-using Core.Movement.Data;
+using Core.Movement.Controllers;
 using Core.Tools;
+using StatsSystem;
 using UnityEngine;
 
 namespace Player{
@@ -10,9 +10,6 @@ namespace Player{
     [RequireComponent(typeof(Rigidbody2D))]
     public class PlayerEntityHandler : MonoBehaviour
     {
-        public HorizontalMovementData MovementData;
-        
-        [SerializeField] private JumpData _jumpData;
         [SerializeField] private AnimatorController _animator;
         [SerializeField] private Cameras _cameras;
 
@@ -20,15 +17,10 @@ namespace Player{
 
         private Mover _mover;
         private Jumper _jumper;
-
-
-        private void Start()
-        {
-            _rigidbody = GetComponent<Rigidbody2D>();
-            _mover = new Mover(_rigidbody, MovementData);
-            _jumper = new Jumper(_rigidbody, _jumpData);
-        }
-
+        
+        public IStatGiver StatGiver { get; private set; }
+        
+        
         private void Update()
         {
             UpdateAnimations();
@@ -45,6 +37,14 @@ namespace Player{
         {
             if (_jumper.GetOffGround(other))
                 Invoke(nameof(StartLanding), 0.4f);
+        }
+        
+        public void Initialize(IStatValueGiver statValueGiver)
+        {
+            _rigidbody = GetComponent<Rigidbody2D>();
+            _mover = new Mover(_rigidbody, statValueGiver);
+            _jumper = new Jumper(_rigidbody, statValueGiver);
+            StatGiver = statValueGiver as IStatGiver;
         }
 
         public void MoveHorizontally(float direction) => _mover.MoveHorizontally(direction);
@@ -104,5 +104,4 @@ namespace Player{
             _animator.PlayAnimation(AnimationType.Attack, false);
         }
     }
-
 }

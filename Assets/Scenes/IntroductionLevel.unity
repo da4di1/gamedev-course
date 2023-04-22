@@ -9591,10 +9591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a159990199e3334e81e3d05bc32bc1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementData:
-    MovingSpeed: 230
-  _jumpData:
-    <JumpingForce>k__BackingField: 270
   _animator: {fileID: 1404122222}
   _cameras:
     _rightDirectionCamera: {fileID: 1450903238}
@@ -11798,7 +11794,7 @@ MonoBehaviour:
   - <Transform>k__BackingField: {fileID: 1404274119}
     <Speed>k__BackingField: -0.1
   - <Transform>k__BackingField: {fileID: 1501384256}
-    <Speed>k__BackingField: 0
+    <Speed>k__BackingField: 1
   - <Transform>k__BackingField: {fileID: 1669612362}
     <Speed>k__BackingField: 1
   - <Transform>k__BackingField: {fileID: 936091123}

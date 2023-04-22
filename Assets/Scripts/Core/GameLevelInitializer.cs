@@ -23,8 +23,6 @@ namespace Core
 
         private void Awake()
         {
-            _levelBorders.OnAwake();
-
             _disposables = new List<IDisposable>();
 
             if (ProjectUpdater.Instance == null)
@@ -34,6 +32,8 @@ namespace Core
             }
             else
                 _projectUpdater = ProjectUpdater.Instance as ProjectUpdater;
+            
+            _levelBorders.OnAwake();
             
             _externalDeviceInputReader = new ExternalDeviceInputReader();
             _disposables.Add(_externalDeviceInputReader);

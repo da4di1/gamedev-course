@@ -4,8 +4,8 @@
     {
         Idle = 0,
         Run = 1,
-        Jump = 2,
-        Attack = 3,
+        Attack = 2,
+        Jump = 3,
         Land = 4,
     }
 }
